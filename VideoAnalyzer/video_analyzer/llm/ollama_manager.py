@@ -55,7 +55,7 @@ def check_ollama_process() -> None:
 
 def ensure_models() -> None:
     """Checks if required Ollama models are present. Pulls them if not."""
-    required = [VISION_MODEL, SUMMARY_MODEL]
+    required = [SUMMARY_MODEL]
     log("OLLAMA", f"Required models: {', '.join(required)}")
     
     try:

@@ -15,6 +15,9 @@ setup(
         "Pillow>=10.0.0",
         "torch>=2.0.0",
         "ffmpeg-python>=0.2.0",
+        "transformers>=4.45.0",
+        "accelerate>=0.26.0",
+        "qwen-vl-utils>=0.0.1",
     ],
     python_requires=">=3.10",
 )

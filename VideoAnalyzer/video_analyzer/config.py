@@ -10,7 +10,7 @@ MIN_FRAME_INTERVAL   = 8       # Minimum frames between two saved keyframes.
 
 # ── Models ────────────────────────────────────────────
 WHISPER_MODEL        = "distil-large-v3"
-VISION_MODEL         = "qwen3-vl:2b"
+VISION_MODEL         = "Qwen/Qwen2-VL-2B-Instruct"
 SUMMARY_MODEL        = "qwen3.5:9b"
 
 # ── Ollama ────────────────────────────────────────────
