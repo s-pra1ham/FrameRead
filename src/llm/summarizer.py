@@ -16,6 +16,25 @@ def generate_master_summary(transcription: str, frame_analyses: str, num_frames:
     """
     log("SUMMARY", f"Sending transcription + {num_frames} frame descriptions to {SUMMARY_MODEL}...")
     
+    # ── Data Preview (diagnostic) ─────────────────────────────────────────────
+    log("SUMMARY", "─── TRANSCRIPT PREVIEW (first 3 lines) ───")
+    transcript_lines = transcription.strip().splitlines()
+    for line in transcript_lines[:3]:
+        log("SUMMARY", f"  │ {line}")
+    log("SUMMARY", f"  └ ... ({len(transcript_lines)} total lines)")
+    
+    log("SUMMARY", "─── FRAME ANALYSIS PREVIEW (first 5 lines) ───")
+    frames_lines = frame_analyses.strip().splitlines()
+    for line in frames_lines[:5]:
+        log("SUMMARY", f"  │ {line}")
+    log("SUMMARY", f"  └ ... ({len(frames_lines)} total lines)")
+    
+    # Confirm which system prompt is loaded
+    prompt_first_line = SUMMARY_SYSTEM_PROMPT.strip().splitlines()[0]
+    log("SUMMARY", f"─── SYSTEM PROMPT CHECK ───")
+    log("SUMMARY", f"  Prompt starts with: \"{prompt_first_line}\"")
+    # ──────────────────────────────────────────────────────────────────────────
+    
     # Build user message from template with actual pipeline data
     user_content = SUMMARY_USER_TEMPLATE.format(
         transcript=transcription,
