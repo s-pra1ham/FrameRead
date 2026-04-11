@@ -8,8 +8,8 @@ import requests
 import subprocess
 import shutil
 import json
-from video_analyzer.config import OLLAMA_HOST, OLLAMA_STARTUP_WAIT, VISION_MODEL, SUMMARY_MODEL
-from video_analyzer.utils.logger import log
+from src.config import OLLAMA_HOST, OLLAMA_STARTUP_WAIT, VISION_MODEL, SUMMARY_MODEL
+from src.utils.logger import log
 
 def check_ollama_process() -> None:
     """Checks if Ollama is running; starts it via subprocess if not."""

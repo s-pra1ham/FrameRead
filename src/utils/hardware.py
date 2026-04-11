@@ -5,7 +5,7 @@ and computing the optimal configurations for vision processing.
 """
 import torch
 from dataclasses import dataclass
-from video_analyzer.utils.logger import log
+from src.utils.logger import log
 
 @dataclass
 class HardwareConfig:

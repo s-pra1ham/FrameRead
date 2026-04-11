@@ -6,8 +6,8 @@ Optionally runs the secondary QA pass across the generated master summary.
 """
 import time
 import requests
-from video_analyzer.config import OLLAMA_HOST, SUMMARY_MODEL, SUMMARY_SYSTEM_PROMPT, QA_SYSTEM_PROMPT
-from video_analyzer.utils.logger import log
+from src.config import OLLAMA_HOST, SUMMARY_MODEL, SUMMARY_SYSTEM_PROMPT, QA_SYSTEM_PROMPT
+from src.utils.logger import log
 
 def generate_master_summary(transcription: str, frame_analyses: str, num_frames: int) -> str:
     """

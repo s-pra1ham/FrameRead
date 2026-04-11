@@ -5,8 +5,8 @@ Faster-whisper automatically saves to `~/.cache/huggingface/`, but we
 force standard logging around the pull.
 """
 from faster_whisper import WhisperModel
-from video_analyzer.config import WHISPER_MODEL
-from video_analyzer.utils.logger import log
+from src.config import WHISPER_MODEL
+from src.utils.logger import log
 
 def ensure_whisper_model() -> None:
     """

@@ -10,10 +10,10 @@ from transformers import Qwen2VLForConditionalGeneration, AutoProcessor
 from PIL import Image
 from typing import List
 
-from video_analyzer.config import VISION_MODEL, FRAME_ANALYSIS_PROMPT
-from video_analyzer.video.frame_extractor import ExtractedFrame
-from video_analyzer.utils.hardware import HardwareConfig
-from video_analyzer.utils.logger import log
+from src.config import VISION_MODEL, FRAME_ANALYSIS_PROMPT
+from src.video.frame_extractor import ExtractedFrame
+from src.utils.hardware import HardwareConfig
+from src.utils.logger import log
 
 def analyze_frames(frames: List[ExtractedFrame], output_txt: str, hardware: HardwareConfig) -> str:
     """
