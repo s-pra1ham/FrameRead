@@ -165,7 +165,7 @@ print(result.summary)            # Full summary is still available
 
 Run FrameRead on Google Colab's free T4 GPU — no local GPU required:
 
-[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](<YOUR_COLAB_NOTEBOOK_URL_HERE>)
+[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1NlAZ2E26Ec_mbVJKPBT5U32ahU_lqLwu?usp=sharing)
 
 <!-- TODO: Replace the URL above with your published Colab notebook link -->
 
