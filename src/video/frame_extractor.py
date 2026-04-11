@@ -9,9 +9,9 @@ import time
 import numpy as np
 from skimage.metrics import structural_similarity as ssim
 from dataclasses import dataclass
-from video_analyzer.utils.hardware import HardwareConfig
-from video_analyzer.config import HIST_THRESHOLD, SSIM_THRESHOLD, MIN_FRAME_INTERVAL
-from video_analyzer.utils.logger import log
+from src.utils.hardware import HardwareConfig
+from src.config import HIST_THRESHOLD, SSIM_THRESHOLD, MIN_FRAME_INTERVAL
+from src.utils.logger import log
 
 @dataclass
 class ExtractedFrame:

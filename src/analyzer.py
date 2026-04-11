@@ -7,18 +7,18 @@ import os
 import time
 from dataclasses import dataclass
 
-from video_analyzer.config import PRINT_SUMMARY
-from video_analyzer.utils.logger import log, reset_timer
-from video_analyzer.utils.hardware import detect_hardware
-from video_analyzer.utils.cleanup import TempDirManager
-from video_analyzer.utils.model_manager import ensure_whisper_model
+from src.config import PRINT_SUMMARY
+from src.utils.logger import log, reset_timer
+from src.utils.hardware import detect_hardware
+from src.utils.cleanup import TempDirManager
+from src.utils.model_manager import ensure_whisper_model
 
-from video_analyzer.llm.ollama_manager import check_ollama_process, ensure_models
-from video_analyzer.audio.extractor import extract_audio
-from video_analyzer.audio.transcriber import transcribe_audio
-from video_analyzer.video.frame_extractor import extract_frames
-from video_analyzer.video.frame_analyzer import analyze_frames
-from video_analyzer.llm.summarizer import generate_master_summary, answer_with_summary
+from src.llm.ollama_manager import check_ollama_process, ensure_models
+from src.audio.extractor import extract_audio
+from src.audio.transcriber import transcribe_audio
+from src.video.frame_extractor import extract_frames
+from src.video.frame_analyzer import analyze_frames
+from src.llm.summarizer import generate_master_summary, answer_with_summary
 
 
 @dataclass

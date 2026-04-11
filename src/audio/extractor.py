@@ -6,7 +6,7 @@ import os
 import shutil
 import subprocess
 import time
-from video_analyzer.utils.logger import log
+from src.utils.logger import log
 
 def extract_audio(video_path: str, output_wav: str) -> bool:
     """

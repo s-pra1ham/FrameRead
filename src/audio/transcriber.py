@@ -4,9 +4,9 @@ Uses faster-whisper to generate dense timestamped dialogue out of audio.
 """
 import time
 from faster_whisper import WhisperModel
-from video_analyzer.config import WHISPER_MODEL
-from video_analyzer.utils.hardware import HardwareConfig
-from video_analyzer.utils.logger import log
+from src.config import WHISPER_MODEL
+from src.utils.hardware import HardwareConfig
+from src.utils.logger import log
 
 def transcribe_audio(audio_path: str, output_txt: str, hardware: HardwareConfig) -> str:
     """

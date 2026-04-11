@@ -6,8 +6,8 @@ Creates UUID-named temporary directories and aggressively cleans them up.
 import os
 import shutil
 import uuid
-from video_analyzer.config import TEMP_DIR_PREFIX
-from video_analyzer.utils.logger import log
+from src.config import TEMP_DIR_PREFIX
+from src.utils.logger import log
 
 class TempDirManager:
     """Context manager for temporary job directories to ensure cleanup."""

@@ -1,7 +1,7 @@
 import argparse
 import sys
 import os
-from video_analyzer.analyzer import analyze
+from src.analyzer import analyze
 
 def main():
     parser = argparse.ArgumentParser(
