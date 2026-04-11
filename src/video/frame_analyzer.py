@@ -18,9 +18,9 @@ from src.video.frame_extractor import ExtractedFrame
 from src.utils.hardware import HardwareConfig
 from src.utils.logger import log
 
-# How much VRAM (in GB) to keep free as a safety margin to avoid OOM.
-# Midpoint of the 1.5-2 GB target range.
-VRAM_SAFETY_BUFFER_GB = 1.75
+# Fraction of total VRAM to keep free as a safety margin to avoid OOM.
+# Midpoint of the 20-25% target range.
+VRAM_SAFETY_BUFFER_FRACTION = 0.225
 
 
 def _build_single_message():
@@ -99,10 +99,12 @@ def _probe_vram_and_compute_batch_size(
     log("VISION", f"Per-frame cost:   {per_frame_vram_gb:.2f} GB")
 
     # -- Phase 3: Compute optimal batch size --------------------------------
-    usable_vram_gb = total_vram_gb - baseline_vram_gb - VRAM_SAFETY_BUFFER_GB
+    safety_buffer_gb = total_vram_gb * VRAM_SAFETY_BUFFER_FRACTION
+    usable_vram_gb = total_vram_gb - baseline_vram_gb - safety_buffer_gb
     optimal_batch = max(1, int(usable_vram_gb / per_frame_vram_gb))
 
-    log("VISION", f"Usable VRAM:      {usable_vram_gb:.2f} GB (after {VRAM_SAFETY_BUFFER_GB} GB buffer)")
+    log("VISION", f"Safety buffer:    {safety_buffer_gb:.2f} GB ({VRAM_SAFETY_BUFFER_FRACTION*100:.1f}% of total)")
+    log("VISION", f"Usable VRAM:      {usable_vram_gb:.2f} GB")
     log("VISION", f"Optimal batch:    {optimal_batch} frames")
     log("VISION", f"----------------------------------------------------")
 
