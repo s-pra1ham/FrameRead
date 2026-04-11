@@ -6,18 +6,21 @@ Optionally runs the secondary QA pass across the generated master summary.
 """
 import time
 import requests
-from src.config import OLLAMA_HOST, SUMMARY_MODEL, SUMMARY_SYSTEM_PROMPT, QA_SYSTEM_PROMPT
+from src.config import OLLAMA_HOST, SUMMARY_MODEL, SUMMARY_SYSTEM_PROMPT, SUMMARY_USER_TEMPLATE, QA_SYSTEM_PROMPT
 from src.utils.logger import log
 
 def generate_master_summary(transcription: str, frame_analyses: str, num_frames: int) -> str:
     """
     Feeds complete transcription and all frame analyses to the LLM to generate 
-    a highly detailed master summary.
+    a structured video summary using the Content Strategist prompt.
     """
     log("SUMMARY", f"Sending transcription + {num_frames} frame descriptions to {SUMMARY_MODEL}...")
     
-    # Estimate token size simply (avg 4 chars per token roughly)
-    user_content = f"TRANSCRIPTION:\n{transcription}\n\nFRAME DESCRIPTIONS:\n{frame_analyses}\n"
+    # Build user message from template with actual pipeline data
+    user_content = SUMMARY_USER_TEMPLATE.format(
+        transcript=transcription,
+        frames_data=frame_analyses
+    )
     est_tokens = len(user_content) // 4
     log("SUMMARY", f"Input size: ~{est_tokens} tokens")
     log("SUMMARY", "Generating master summary (this may take a moment)...")
