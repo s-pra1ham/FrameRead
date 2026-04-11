@@ -40,7 +40,7 @@ Video File ──┬── Audio Pipeline ──→ Transcription (faster-whispe
                        (always)              (if prompt given)
 ```
 
-> 📖 **For the full architecture diagram, pipeline details, and developer blueprint, see [`docs/VideoAnalyzer_ProjectSpec.md`](docs/VideoAnalyzer_ProjectSpec.md).**
+> 📖 **For the full architecture diagram, pipeline details, and developer blueprint, see [`VideoAnalyzer_ProjectSpec.md`](VideoAnalyzer_ProjectSpec.md).**
 
 ---
 
